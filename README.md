@@ -1,7 +1,6 @@
 # WazirX Public Rest API
-Here’s our public API handed to you on a silver platter. You can use it to build tickers, price comparison apps, or anything that helps the crypto community. Use it wisely and responsibily. ❤️
+Here’s our public API handed to you on a silver platter. You can use it to build tickers, price comparison apps, or anything that helps the crypto community. Use it responsibly. ❤️
 
-![Be Responsible](https://media2.giphy.com/media/MCZ39lz83o5lC/giphy.gif)
 
 ## General Information
 1. Base API Endpoint: https://api.wazirx.com
@@ -11,7 +10,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
 
 1. GET `/api/v2/market-status`  [Live link](https://api.wazirx.com/api/v2/market-status)
 
-    > Market status will give your an overview of markets and assets. This is great when you want to track the configuration of our markets, get fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
+    > "Market Status" will give your an overview of markets and assets. This is helpful when you want to track the configuration of our markets, track fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
     
     Response object will have 2 keys `markets`(all market related configs will be in this key) and `assets`(all assets related configs will be here). 
     ### Response:
@@ -62,7 +61,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
     ```
     
     
-    1. **`markets` key have multiple market related configuration and description of every field in market is as below:**
+    1. **`markets` key has multiple market related configuration, and description of every field in market is as below:**
     
         1. `baseMarket`: ticker code of base asset
         1. `quoteMarket`: ticker code of quote asset
@@ -84,14 +83,14 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         1. `type`: asset code
         1. `name`: Display name of asset
         1. `withdrawFee`: Withdrawal fee of asset
-        1. `minWithdrawAmount`: Minimum withdrawal amount in single transaction
-        1. `maxWithdrawAmount`: Maximum withdrawal amount in single transaction
+        1. `minWithdrawAmount`: Minimum withdrawal amount in a single transaction
+        1. `maxWithdrawAmount`: Maximum withdrawal amount in a single transaction
         1. `deposit`: Denotes whether deposit is enabled or disabled
         1. `withdrawal`: Denotes whether withdrawal is enabled or disabled
 
 
 1. GET `/api/v2/tickers` [Live link](https://api.wazirx.com/api/v2/tickers)
-    > Get the latest market heart-beat for all the market for last 24hrs.
+    > Get the latest market heart-beat for all the markets for the last 24hrs.
     
     Returns JSON response which has active market data with all ticker related values.
     ### Response:
@@ -113,7 +112,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         ...
     }
     ```
-    Response have multiple key which denotes market data, this is in JSON. Find all the fields below:
+    Response has multiple key which denotes market data, this is in JSON. Find all the fields below:
     
     1. `base_unit`: ticker code of base market
     1. `quote_unit`: ticker code of quote asset
@@ -127,4 +126,4 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
     1. `name`: Display text of market
     1. `at`: Timestamp when ticker information is fetched
     
-If you have any questions regarding APIs please reach out to us at http://support.wazirx.com
+If you have any questions regarding APIs, please reach out to us at http://support.wazirx.com
