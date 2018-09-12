@@ -10,7 +10,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
 1. GET `/api/v2/market-status`
 
     Returns JSON object which has current market and assets status. Response object will have 2 keys `markets`(all market related configs will be in this key) and `assets`(all assets related configs will be here). 
-    #### Response:
+    ### Response:
     ```
     {
         "markets": [
@@ -84,4 +84,40 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
     1. `withdrawal`: Denotes whether withdrawal is enabled or disabled
 
 
-    If you have any questions regarding APIs please reach out to us at http://support.wazirx.com
+1. GET `/api/v2/tickers`
+    
+    Returns JSON response which has active market data with all ticker related values.
+    ### Response:
+    ```
+    {
+        "btcinr": {
+            "base_unit": "btc",
+            "quote_unit": "inr",
+            "low": "472005.0",
+            "high": "508102.0",
+            "last": "508100.0",
+            "open": 490000,
+            "volume": "0.2709",
+            "sell": "508100.0",
+            "buy": "481000.0",
+            "name": "BTC/INR",
+            "at": 1536732262
+        },
+        ...
+    }
+    ```
+    Response have multiple key which denotes market and it has JSON object as a value which is consists of ticker information as mentioned below:
+    
+    1. `base_unit`: ticker code of base market
+    1. `quote_unit`: ticker code of quote asset
+    1. `low`: 24 hrs lowest price of base asset
+    1. `high`: 24 hrs highest price of base asset
+    1. `last`: Last traded price in current market
+    1. `open`: Market Open price 24hrs ago
+    1. `volume`: Last 24hrs traded volume
+    1. `sell`: Top ask order price
+    1. `buy`: Top bid order price
+    1. `name`: Display text of market
+    1. `at`: Timestamp when ticker information is fetched
+    
+If you have any questions regarding APIs please reach out to us at http://support.wazirx.com
