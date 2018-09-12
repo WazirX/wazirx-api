@@ -1,6 +1,8 @@
 # WazirX Public Rest API
 Here’s our public API handed to you on a silver platter. You can use it to build tickers, price comparison apps, or anything that helps the crypto community. Use it wisely and responsibily. ❤️
 
+![Be Responsible](https://media2.giphy.com/media/MCZ39lz83o5lC/giphy.gif)
+
 ## General Information
 1. Base API Endpoint: https://api.wazirx.com
 1. All public api will return either JSON or Array object.
