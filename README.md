@@ -7,9 +7,11 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
 
 ### Public API Endpoints
 
-1. GET `/api/v2/market-status`
+1. GET `/api/v2/market-status`  [Live link](https://api.wazirx.com/api/v2/market-status)
 
-    Returns JSON object which has current market and assets status. Response object will have 2 keys `markets`(all market related configs will be in this key) and `assets`(all assets related configs will be here). 
+    > Market status will give your an overview of markets and assets. This is great when you want to track the configuration of our markets, get fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
+    
+    Response object will have 2 keys `markets`(all market related configs will be in this key) and `assets`(all assets related configs will be here). 
     ### Response:
     ```
     {
@@ -37,7 +39,8 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
                 "open": 505002,
                 "volume": "0.2071",
                 "sell": "490000.0",
-                "buy": "485001.0"
+                "buy": "485001.0",
+                "type": "SPOT"
             },
             ...
         ],
@@ -56,35 +59,37 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
     }
     ```
     
-    `markets` key have multiple market related configuration and description of every field in market is as below:
     
-    1. `baseMarket`: ticker code of base asset
-    1. `quoteMarket`: ticker code of quote asset
-    1. `minBuyAmount`: Minimum buy amount of base asset
-    1. `minSellAmount`: Minumum sell amount of base asset
-    1. `fee`: JSON Object consists of `bid` and `ask` order's maker-taker fee percentage
-    1. `basePrecision`: Maximum precision of base asset, this the decimal point. 
-    1. `quotePrecision`: Maximum  precision of quote asset
-    1. `low`: 24 hrs lowest price of base asset
-    1. `high`: 24 hrs highest price of base asset
-    1. `last`: Last traded price in current market
-    1. `open`: Market Open price 24hrs ago
-    1. `volume`: Last 24hrs traded volume
-    1. `sell`: Top ask order price
-    1. `buy`: Top bid order price
+    1. **`markets` key have multiple market related configuration and description of every field in market is as below:**
     
-    `assets` key have multiple asset related configuration as described below:
+        1. `baseMarket`: ticker code of base asset
+        1. `quoteMarket`: ticker code of quote asset
+        1. `minBuyAmount`: Minimum buy amount of base asset
+        1. `minSellAmount`: Minumum sell amount of base asset
+        1. `fee`: JSON Object consists of `bid` and `ask` order's maker-taker fee percentage
+        1. `basePrecision`: Maximum precision of base asset, this the decimal point. 
+        1. `quotePrecision`: Maximum  precision of quote asset
+        1. `low`: 24 hrs lowest price of base asset
+        1. `high`: 24 hrs highest price of base asset
+        1. `last`: Last traded price in current market
+        1. `open`: Market Open price 24hrs ago
+        1. `volume`: Last 24hrs traded volume
+        1. `sell`: Top ask order price
+        1. `buy`: Top bid order price
+        1. `type`: This defines the type of market, currently we have `SPOT` and `P2P`
+    1. **`assets` key have multiple asset related configuration as described below:**
     
-    1. `type`: asset code
-    1. `name`: Display name of asset
-    1. `withdrawFee`: Withdrawal fee of asset
-    1. `minWithdrawAmount`: Minimum withdrawal amount in single transaction
-    1. `maxWithdrawAmount`: Maximum withdrawal amount in single transaction
-    1. `deposit`: Denotes whether deposit is enabled or disabled
-    1. `withdrawal`: Denotes whether withdrawal is enabled or disabled
+        1. `type`: asset code
+        1. `name`: Display name of asset
+        1. `withdrawFee`: Withdrawal fee of asset
+        1. `minWithdrawAmount`: Minimum withdrawal amount in single transaction
+        1. `maxWithdrawAmount`: Maximum withdrawal amount in single transaction
+        1. `deposit`: Denotes whether deposit is enabled or disabled
+        1. `withdrawal`: Denotes whether withdrawal is enabled or disabled
 
 
-1. GET `/api/v2/tickers`
+1. GET `/api/v2/tickers` [Live link](https://api.wazirx.com/api/v2/tickers)
+    > Get the latest market heart-beat for all the market for last 24hrs.
     
     Returns JSON response which has active market data with all ticker related values.
     ### Response:
@@ -106,7 +111,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         ...
     }
     ```
-    Response have multiple key which denotes market and it has JSON object as a value which is consists of ticker information as mentioned below:
+    Response have multiple key which denotes market data, this is in JSON. Find all the fields below:
     
     1. `base_unit`: ticker code of base market
     1. `quote_unit`: ticker code of quote asset
