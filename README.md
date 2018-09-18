@@ -8,7 +8,8 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
 
 ### Public API Endpoints
 
-1. GET `/api/v2/market-status`  [Live link](https://api.wazirx.com/api/v2/market-status)
+1. #### MARKET STATUS
+   GET `/api/v2/market-status`  [Live link](https://api.wazirx.com/api/v2/market-status)
 
     > "Market Status" will give your an overview of markets and assets. This is helpful when you want to track the configuration of our markets, track fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
     
@@ -53,8 +54,11 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
                 "withdrawFee": 0,
                 "minWithdrawAmount": 50,
                 "maxWithdrawAmount": 50000,
+                "minDepositAmount": 500,
+                "confirmation": 5,
                 "deposit": "enabled",
                 "withdrawal": "enabled"
+                
             },
             ...
         ]
@@ -79,7 +83,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         1. `sell`: Top ask order price
         1. `buy`: Top bid order price
         1. `type`: This defines the type of market, currently we have `SPOT` and `P2P`
-        1. `status`: This defines the current state of the market. This can be `disabled` or `active`
+        1. `status`: This defines the current state of the market. This can be `active` or `suspended`
     1. **`assets` key have multiple asset related configuration as described below:**
     
         1. `type`: asset code
@@ -87,11 +91,15 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         1. `withdrawFee`: Withdrawal fee of asset
         1. `minWithdrawAmount`: Minimum withdrawal amount in a single transaction
         1. `maxWithdrawAmount`: Maximum withdrawal amount in a single transaction
+        1. `minDepositAmount`: This is the min Deposit amount that will be accepted as deposit
+        1. `confirmations`: Is the min number of block height needed to confirm a block chain deposit transaction.
         1. `deposit`: Denotes whether deposit is enabled or disabled
         1. `withdrawal`: Denotes whether withdrawal is enabled or disabled
+        
 
 
-1. GET `/api/v2/tickers` [Live link](https://api.wazirx.com/api/v2/tickers)
+1. #### MARKET TICKER
+   GET `/api/v2/tickers` [Live link](https://api.wazirx.com/api/v2/tickers)
     > Get the latest market heart-beat for all the markets for the last 24hrs.
     
     Returns JSON response which has active market data with all ticker related values.
