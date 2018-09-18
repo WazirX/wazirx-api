@@ -42,6 +42,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
                 "sell": "490000.0",
                 "buy": "485001.0",
                 "type": "SPOT"
+                "Status": "active"
             },
             ...
         ],
@@ -78,6 +79,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         1. `sell`: Top ask order price
         1. `buy`: Top bid order price
         1. `type`: This defines the type of market, currently we have `SPOT` and `P2P`
+        1. `status`: This defines the current state of the market. This can be `disabled` or `active`
     1. **`assets` key have multiple asset related configuration as described below:**
     
         1. `type`: asset code
