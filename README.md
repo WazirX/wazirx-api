@@ -136,4 +136,50 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
     1. `name`: Display text of market
     1. `at`: Timestamp when ticker information is fetched
     
+
+1. #### MARKET DEPTH
+   GET `/api/v2/depth` [Live link](https://api.wazirx.com/api/v2/depth?market=btcusdt)
+    > Get market orderbook of any market
+    
+    Returns JSON response which has order book of a perticular market
+    ### Response:
+    ```
+    {
+    "timestamp":1559561187,
+    "asks":[
+               ["8540.0","1.5"],
+               ["8541.0","0.0042"]
+           ],
+    "bids":[
+               ["8530.0","0.8814"],
+               ["8524.0","1.4"]
+           ]
+    }
+    ```
+    1. `["8540.0","1.5"]` : [ PRICE, VOLUME ]
+    1. URL param `market=btcusdt` : Replace this with any market to get the desired order book.
+    
+1. #### MARKET TRADE HISTORY
+   GET `/api/v2/trades` [Live link](https://api.wazirx.com/api/v2/trades?market=btcusdt)
+    > Get trade history of a market
+    
+    Returns JSON response which has trade history of a perticular market
+    ### Response:
+    ```
+    [
+      {
+         "id":1302646,
+         "price":"8530.0",
+         "volume":"0.3207",
+         "funds":"2735.571",
+         "market":"btcusdt",
+         "created_at":"2019-06-03T17:03:41+05:30",
+         "side":null
+       }  
+   ...
+   ]
+    ```
+    1. URL param `market=btcusdt` : Replace this with any market to get the desired order book.
+    
+    
 If you have any questions regarding APIs, please reach out to us at http://support.wazirx.com
