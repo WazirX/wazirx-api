@@ -11,7 +11,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
 1. #### MARKET STATUS
    GET `/api/v2/market-status`  [Live link](https://api.wazirx.com/api/v2/market-status)
 
-    > "Market Status" will give your an overview of markets and assets. This is helpful when you want to track the configuration of our markets, track fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
+    > "Market Status" will give you an overview of markets and assets. This is helpful when you want to track the configuration of our markets, track fees or status of withdrawal deposit, market configuration and more. This response is not recommended for price polling because accurate realtime price is not guaranteed as there could be some delays. We recommend using price ticker API for all price tracking activity.
     
     Response object will have 2 keys `markets`(all market related configs will be in this key) and `assets`(all assets related configs will be here). 
     ### Response:
@@ -71,7 +71,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
         1. `baseMarket`: ticker code of base asset
         1. `quoteMarket`: ticker code of quote asset
         1. `minBuyAmount`: Minimum buy amount of base asset
-        1. `minSellAmount`: Minumum sell amount of base asset
+        1. `minSellAmount`: Minimum sell amount of base asset
         1. `fee`: JSON Object consists of `bid` and `ask` order's maker-taker fee percentage
         1. `basePrecision`: Maximum precision of base asset, this the decimal point. 
         1. `quotePrecision`: Maximum  precision of quote asset
@@ -141,7 +141,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
    GET `/api/v2/depth` [Live link](https://api.wazirx.com/api/v2/depth?market=btcusdt)
     > Get market orderbook of any market
     
-    Returns JSON response which has order book of a perticular market
+    Returns JSON response which has order book of a particular market
     ### Response:
     ```
     {
@@ -163,7 +163,7 @@ Here’s our public API handed to you on a silver platter. You can use it to bui
    GET `/api/v2/trades` [Live link](https://api.wazirx.com/api/v2/trades?market=btcusdt)
     > Get trade history of a market
     
-    Returns JSON response which has trade history of a perticular market
+    Returns JSON response which has trade history of a particular market
     ### Response:
     ```
     [
